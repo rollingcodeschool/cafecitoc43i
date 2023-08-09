@@ -5,7 +5,7 @@ import { login } from "../helpers/queries";
 import Swal from "sweetalert2";
 
 
-const Login = () => {
+const Login = ({setUsuarioActivo}) => {
   const {
     register,
     handleSubmit,
@@ -26,6 +26,7 @@ const Login = () => {
         )
         // guardar el usuario en el localstorage o sessionStorage;
         sessionStorage.setItem('usuarioLogueado', JSON.stringify(respuesta));
+        setUsuarioActivo(respuesta);
       }else{
         Swal.fire(
           'Ocurrio un error',
