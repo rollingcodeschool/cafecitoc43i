@@ -1,6 +1,14 @@
 import { Container, Row } from "react-bootstrap";
 import CardProducto from "./producto/CardProducto";
+import { useEffect, useState } from "react";
+
 const Inicio = () => {
+  const [productos, setProductos] = useState([]);
+
+  useEffect(()=>{
+    
+  },[])
+
   return (
     <section className="mainSection">
       <img
