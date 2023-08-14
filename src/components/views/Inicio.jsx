@@ -1,12 +1,25 @@
 import { Container, Row } from "react-bootstrap";
 import CardProducto from "./producto/CardProducto";
 import { useEffect, useState } from "react";
+import { listarProductos } from "../helpers/queries";
+import Swal from "sweetalert2";
 
 const Inicio = () => {
   const [productos, setProductos] = useState([]);
 
   useEffect(()=>{
-    
+    listarProductos().then((respuestaProductos)=>{
+      if(respuestaProductos){
+        // actualizar el estado
+        setProductos(respuestaProductos);
+      }else{
+        Swal.fire(
+          'Ocurrio un error',
+          'Intente realizar esta operación mas tarde',
+          'error'
+        )
+      }
+    })
   },[])
 
   return (
@@ -19,10 +32,8 @@ const Inicio = () => {
       <Container>
         <h1 className="display-4">Nuestros Productos</h1>
         <hr />
+        {/* aqui tengo que mapear */}
         <Row>
-            <CardProducto></CardProducto>
-            <CardProducto></CardProducto>
-            <CardProducto></CardProducto>
             <CardProducto></CardProducto>
         </Row>
       </Container>
