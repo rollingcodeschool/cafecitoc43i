@@ -34,7 +34,9 @@ const Inicio = () => {
         <hr />
         {/* aqui tengo que mapear */}
         <Row>
-            <CardProducto></CardProducto>
+         {
+          productos.map((producto)=><CardProducto key={producto.id} producto={producto}></CardProducto>)
+         }
         </Row>
       </Container>
     </section>
