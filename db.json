@@ -1,28 +1,35 @@
 {
-    "productos":[
-        {
-            "nombreProducto":"café",
-            "precio": 300,
-            "categoria": "bebida caliente",
-            "imagen":"https://images.pexels.com/photos/3020919/pexels-photo-3020919.jpeg",
-            "descripcion":"algun cafecito",
-            "id":1
-        },
-        {
-            "nombreProducto":"té",
-            "precio": 250,
-            "categoria": "bebida caliente",
-            "imagen":"https://images.pexels.com/photos/3020919/pexels-photo-3020919.jpeg",
-            "descripcion":"un tecito de manzanilla",
-            "id":2
-        }
-    ],
-    "usuarios":[
-        {
-            "nombreUsuario": "Admin",
-            "email":"admin@rolling.com",
-            "password": "123456aA",
-            "id":1
-        }
-    ]
+  "productos": [
+    {
+      "nombreProducto": "café",
+      "precio": 300,
+      "categoria": "bebida caliente",
+      "imagen": "https://images.pexels.com/photos/3020919/pexels-photo-3020919.jpeg",
+      "descripcion": "algun cafecito",
+      "id": 1
+    },
+    {
+      "nombreProducto": "té",
+      "precio": 250,
+      "categoria": "bebida caliente",
+      "imagen": "https://images.pexels.com/photos/3020919/pexels-photo-3020919.jpeg",
+      "descripcion": "un tecito de manzanilla",
+      "id": 2
+    },
+    {
+      "nombreProducto": "Medialuna",
+      "precio": "700",
+      "imagen": "http://pan.jpg",
+      "categoria": "dulce",
+      "id": 3
+    }
+  ],
+  "usuarios": [
+    {
+      "nombreUsuario": "Admin",
+      "email": "admin@rolling.com",
+      "password": "123456aA",
+      "id": 1
+    }
+  ]
 }
