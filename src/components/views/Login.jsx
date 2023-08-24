@@ -3,6 +3,7 @@ import { Form, Button, Container, Card } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { login } from "../helpers/queries";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 
 const Login = ({setUsuarioActivo}) => {
@@ -11,6 +12,7 @@ const Login = ({setUsuarioActivo}) => {
     handleSubmit,
     formState:{errors}
   }= useForm();
+  const navegacion = useNavigate();
 
   // esta es mi funcion la que pide loguear al usuario
   const onSubmit = (usuario)=>{
@@ -27,6 +29,7 @@ const Login = ({setUsuarioActivo}) => {
         // guardar el usuario en el localstorage o sessionStorage;
         sessionStorage.setItem('usuarioLogueado', JSON.stringify(respuesta));
         setUsuarioActivo(respuesta);
+        navegacion('/administrador')
       }else{
         Swal.fire(
           'Ocurrio un error',

@@ -89,3 +89,14 @@ export const editarProducto = async (id, productoEditado) => {
     console.log(error);
   }
 };
+
+export const borrarProductoAPI = async(id)=>{
+  try{
+      const respuesta = await fetch(`${uriProducto}/${id}`,{
+          method: "DELETE"
+      });
+      return respuesta;
+  }catch(error){
+      console.log(error);
+  }
+}

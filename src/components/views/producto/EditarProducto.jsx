@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { editarProducto, obtenerProducto } from '../../helpers/queries';
 import Swal from 'sweetalert2';
 
 const EditarProducto = () => {
   const { id } = useParams();
-
+  const navegacion = useNavigate();
   const {
     register,
     handleSubmit,
@@ -40,6 +40,7 @@ const EditarProducto = () => {
             'Su producto se edito correctamente',
             'success'
           );
+          navegacion('/administrador')
         }
       })
       .catch((error) => {
