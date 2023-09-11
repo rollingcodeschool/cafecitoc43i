@@ -1,34 +1,59 @@
 const uriUsuario = import.meta.env.VITE_API_USUARIO;
 const uriProducto = import.meta.env.VITE_API_PRODUCTO;
 // la func recibe de param un usuario con email y password
-export const login = async (usuario) => {
+// export const login = async (usuario) => {
+//   try {
+//     //pedir la lista de usuarios a json-server
+//     const respuesta = await fetch(uriUsuario);
+//     const listaUsuarios = await respuesta.json();
+//     //buscar si el usuario que completo el formulario esta dentro de la lista de json-server
+//     const usuarioBuscado = listaUsuarios.find(
+//       (itemUsuario) => itemUsuario.email === usuario.email
+//     );
+//     //preguntar si encontre el usuario
+//     if (usuarioBuscado) {
+//       //si encontre el usuario y su password es correcto, esta todo ok
+//       if (usuarioBuscado.password === usuario.password) {
+//         console.log('todo esta perfecto');
+//         return usuarioBuscado;
+//       } else {
+//         console.log('el password es erroneo');
+//         return null;
+//       }
+//     } else {
+//       //caso contrario tendria que decir que salio todo mal
+//       console.log('el email es incorrecto');
+//       return null;
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+export const login = async (usuario) =>{
   try {
-    //pedir la lista de usuarios a json-server
-    const respuesta = await fetch(uriUsuario);
-    const listaUsuarios = await respuesta.json();
-    //buscar si el usuario que completo el formulario esta dentro de la lista de json-server
-    const usuarioBuscado = listaUsuarios.find(
-      (itemUsuario) => itemUsuario.email === usuario.email
-    );
-    //preguntar si encontre el usuario
-    if (usuarioBuscado) {
-      //si encontre el usuario y su password es correcto, esta todo ok
-      if (usuarioBuscado.password === usuario.password) {
-        console.log('todo esta perfecto');
-        return usuarioBuscado;
-      } else {
-        console.log('el password es erroneo');
-        return null;
-      }
-    } else {
-      //caso contrario tendria que decir que salio todo mal
-      console.log('el email es incorrecto');
-      return null;
-    }
+    console.log(usuario);
+    const respuesta = await fetch(URL_USER, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(usuario),
+    });
+    const datos = await respuesta.json();
+    return {
+      status: respuesta.status,
+      mensaje: datos.mensaje,
+      usuario: datos.nombre,
+      // token: datos.token,
+      uid: datos.uid,
+    };
   } catch (error) {
-    console.log(error);
+    console.log("errores en el login");
+    return;
   }
-};
+}
+
 
 // solicitudes o peticiones a la api
 // peticion GET devuelve un listado de elementos o un elemento

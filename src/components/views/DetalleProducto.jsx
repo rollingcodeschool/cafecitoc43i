@@ -33,7 +33,7 @@ const DetalleProducto = () => {
               <Card.Title>{producto.nombreProducto}</Card.Title>
               <hr />
               <Card.Text>
-              {producto.detalleProducto}
+              {producto.descripcion}
               <br/>
               <br/>
               <span className="text-danger fw-semibold ">Categoria:</span> {producto.categoria}
