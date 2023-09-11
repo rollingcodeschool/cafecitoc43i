@@ -33,7 +33,7 @@ const uriProducto = import.meta.env.VITE_API_PRODUCTO;
 export const login = async (usuario) =>{
   try {
     console.log(usuario);
-    const respuesta = await fetch(URL_USER, {
+    const respuesta = await fetch(uriUsuario, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -41,6 +41,7 @@ export const login = async (usuario) =>{
       body: JSON.stringify(usuario),
     });
     const datos = await respuesta.json();
+  //  aqui pueden cambiar la respuesta
     return {
       status: respuesta.status,
       mensaje: datos.mensaje,

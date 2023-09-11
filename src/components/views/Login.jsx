@@ -20,7 +20,7 @@ const Login = ({setUsuarioActivo}) => {
     console.log(usuario)
     login(usuario).then((respuesta)=>{
       console.log(respuesta)
-      if(respuesta){
+      if(respuesta.status === 200){
         Swal.fire(
           'Bienvenido '+ respuesta.nombreUsuario,
           'Ingresaste a la web cafecito',
