@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import { borrarProductoAPI, listarProductos } from '../../helpers/queries';
 
 
-const ItemProducto = ({ nombreProducto, precio, categoria, imagen, id ,setProductos}) => {
+const ItemProducto = ({ nombreProducto, precio, categoria, imagen, _id ,setProductos}) => {
   const borrarProducto = () => {
     Swal.fire({
       title: "¿Esta seguro de eliminar el producto",
@@ -18,7 +18,7 @@ const ItemProducto = ({ nombreProducto, precio, categoria, imagen, id ,setProduc
     }).then((result) => {
       if (result.isConfirmed) {
         //realizar la consulta a la api
-        borrarProductoAPI(id).then((respuesta) => {
+        borrarProductoAPI(_id).then((respuesta) => {
           if (respuesta.status === 200) {
             //actualizar el state productos o la tabla
             listarProductos().then((respuesta)=>{
@@ -45,13 +45,13 @@ const ItemProducto = ({ nombreProducto, precio, categoria, imagen, id ,setProduc
 
   return (
     <tr>
-      <td>{id}</td>
+      <td>{_id}</td>
       <td>{nombreProducto}</td>
       <td>{precio}</td>
       <td>{imagen}</td>
       <td>{categoria}</td>
       <td>
-        <Link to={`/administrador/editar/${id}`} className='btn btn-warning me-2'>
+        <Link to={`/administrador/editar/${_id}`} className='btn btn-warning me-2'>
           Editar
         </Link>
         <Button variant="danger" onClick={borrarProducto}>

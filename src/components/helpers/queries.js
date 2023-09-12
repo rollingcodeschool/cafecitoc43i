@@ -77,6 +77,8 @@ export const listarProductos = async () => {
 
 export const crearProducto = async (producto) => {
   try {
+    producto.descripcion = 'prueba de descripcion';
+    console.log(producto)
     const resp = await fetch(uriProducto, {
       method: 'POST',
       headers: {

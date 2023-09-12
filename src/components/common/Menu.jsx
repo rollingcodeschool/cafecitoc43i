@@ -29,7 +29,7 @@ const Menu = ({ usuarioActivo, setUsuarioActivo }) => {
               Registro
             </NavLink>
             {/* aqui pregunto si usuarioActivo tiene una propiedad guardada, cualquiera */}
-            {usuarioActivo.email ? (
+            {usuarioActivo.usuario ? (
               <>
                 <NavLink end to="/administrador" className="nav-link">
                   Administrador

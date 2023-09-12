@@ -22,7 +22,7 @@ const Login = ({setUsuarioActivo}) => {
       console.log(respuesta)
       if(respuesta.status === 200){
         Swal.fire(
-          'Bienvenido '+ respuesta.nombreUsuario,
+          'Bienvenido '+ respuesta.usuario,
           'Ingresaste a la web cafecito',
           'success'
         )
