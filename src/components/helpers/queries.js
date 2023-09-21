@@ -46,7 +46,7 @@ export const login = async (usuario) =>{
       status: respuesta.status,
       mensaje: datos.mensaje,
       usuario: datos.nombre,
-      // token: datos.token,
+      token: datos.token,
       uid: datos.uid,
     };
   } catch (error) {
@@ -83,6 +83,7 @@ export const crearProducto = async (producto) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'x-token': JSON.parse(sessionStorage.getItem('usuarioLogueado')).token
       },
       body: JSON.stringify(producto),
     });
